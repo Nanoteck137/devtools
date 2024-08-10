@@ -61,7 +61,6 @@ if len(staged_files) != 1 or staged_files[0] != "version":
     print("Incorrect setup")
     exit(-1)
 
-run_cmd(["git", "add", "version"])
 run_cmd(["git", "commit", "-m", "Version {}".format(new_version)])
 run_cmd(["git", "push"])
 
