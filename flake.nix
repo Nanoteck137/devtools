@@ -20,6 +20,8 @@
         tools = import ./tools { inherit pkgs; };
       in
       {
+        packages = tools;
+
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             tools.publishVersion
