@@ -17,12 +17,12 @@
         version = pkgs.lib.strings.fileContents "${self}/version";
         fullVersion = ''${version}-${self.dirtyShortRev or self.shortRev or "dirty"}'';
 
-        publishVersion = pkgs.writers.writePython3Bin "publish-version" {} ./ver.py;
+        tools = import ./tools { inherit pkgs; };
       in
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            publishVersion
+            tools.publishVersion
           ];
         };
       }
