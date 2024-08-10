@@ -24,6 +24,7 @@
 
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
+            python3
             tools.publishVersion
           ];
         };
